@@ -1,0 +1,44 @@
+{
+  "name": "git-basics-1-pill",
+  "version": "1.0.0",
+  "description": "assembler-school-git-basics-1-pill",
+  "scripts": {
+    "validate-exercise-01": "jest -t exercise-01",
+    "validate-exercise-02": "jest -t exercise-02",
+    "validate-exercise-03-a": "jest -t exercise-03-a",
+    "validate-exercise-03-b": "jest -t exercise-03-b",
+    "validate-exercise-04-a": "jest -t exercise-04-a",
+    "validate-exercise-04-b": "jest -t exercise-04-b",
+    "validate-exercise-05": "jest -t exercise-05",
+    "validate-exercise-06": "jest -t exercise-06",
+    "validate-exercise-07": "jest -t exercise-07",
+    "validate-exercise-08": "jest -t exercise-08",
+    "validate-exercise-09": "jest -t exercise-09",
+    "validate-exercise-10": "jest -t exercise-10",
+    "validate-exercise-11": "jest -t exercise-11",
+    "validate-exercise-12": "jest -t exercise-12",
+    "validate-exercise-13": "jest -t exercise-13",
+    "validate-exercise-14": "jest -t exercise-14",
+    "validate-exercise-15": "jest -t exercise-15"
+  },
+  "keywords": [
+    "git",
+    "basics",
+    "assemblerschool"
+  ],
+  "author": "Daniel Lucaci <dani@assemblerschool.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/jest": "^25.2.1",
+    "git-tools": "^0.3.0",
+    "jest": "^25.5.2",
+    "simple-git": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-jest": "^25.5.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.1"
+  }
+}

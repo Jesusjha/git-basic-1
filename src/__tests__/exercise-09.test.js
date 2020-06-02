@@ -1,9 +1,12 @@
 const git = require("../../utils/git");
 
 describe("exercise-09", () => {
-  test("clear the stash list", async () => {
-    let stashList = await git.stashList();
+  test("remove the branch feature", async () => {
+    let branches = await git.branch();
 
-    expect(stashList.total).toBe(0);
+    expect(branches.current).toMatch(/master/);
+    expect(branches.all).toContain("develop");
+    expect(branches.all).not.toContain("feature");
+    expect(branches.all).toContain("master");
   });
 });

@@ -1,21 +1,12 @@
 const git = require("../../utils/git");
 
 describe("exercise-15", () => {
-  test("create merge commit with master and develop", async () => {
-    let branches = await git.branch();
-    let count = await git.raw([
-      "rev-list",
-      "develop",
-      "master",
-      "--merges",
-      "--count",
-    ]);
+  test("create a new file and store it in a stash entry", async () => {
+    let stashList = await git.stashList();
+    let raw = await git.raw(["ls-tree", "-r", "stash@{0}^3", "--name-only"]);
 
-    let n = Number(count);
-
-    expect(n).toEqual(1);
-    expect(branches.current).toMatch(/master/);
-    expect(branches.all).toContain("develop");
-    expect(branches.all).toContain("master");
+    expect(stashList.total).toBe(1);
+    expect(stashList.latest.message).toMatch(/stash with untracked files/i);
+    expect(raw).toMatch(/src\/exercises\/exercise-15.txt/i);
   });
 });

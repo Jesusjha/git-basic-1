@@ -1,10 +1,22 @@
 const git = require("../../utils/git");
 
 describe("exercise-08", () => {
-  test("create a new stash entry with a message", async () => {
-    let stashList = await git.stashList();
+  test("create a new branch named feature based on the develop branch", async () => {
+    let branches = await git.branch();
+    let count = await git.raw([
+      "rev-list",
+      "feature",
+      "develop",
+      "^master",
+      "--count",
+    ]);
 
-    expect(stashList.total).toBe(1);
-    expect(stashList.latest.message).toMatch(/my stash message/i);
+    let n = Number(count);
+
+    expect(n).toEqual(1);
+    expect(branches.current).toMatch(/master/);
+    expect(branches.all).toContain("develop");
+    expect(branches.all).toContain("feature");
+    expect(branches.all).toContain("master");
   });
 });

@@ -1,13 +1,9 @@
 const git = require("../../utils/git");
 
 describe("exercise-12", () => {
-  test("switch to the develop branch and create a new commit", async () => {
-    let branches = await git.branch();
-    let count = await git.raw(["rev-list", "develop", "^master", "--count"]);
+  test("use git stash pop to remove the stash entry", async () => {
+    let stashList = await git.stashList();
 
-    let n = Number(count);
-
-    expect(branches.current).toMatch(/develop/);
-    expect(n).toEqual(1);
+    expect(stashList.total).toBe(0);
   });
 });

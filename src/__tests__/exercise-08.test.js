@@ -7,16 +7,16 @@ describe("exercise-08", () => {
       "rev-list",
       "feature",
       "develop",
-      "^master",
+      "^main",
       "--count",
     ]);
 
     let n = Number(count);
 
     expect(n).toEqual(1);
-    expect(branches.current).toMatch(/master/);
+    expect(branches.current).toMatch(/main/);
     expect(branches.all).toContain("develop");
     expect(branches.all).toContain("feature");
-    expect(branches.all).toContain("master");
+    expect(branches.all).toContain("main");
   });
 });
